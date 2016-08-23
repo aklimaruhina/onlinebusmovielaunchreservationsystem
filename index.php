@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
         <title>Bus Launch Movie</title>
@@ -159,6 +159,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <p class="text-green">© 2016 shohoz ticket.</p>
+<p class="text-green">this is changed </p>
                     </div>
                 </div>
             </div>
