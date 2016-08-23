@@ -18,7 +18,7 @@ VALUES
 ('$user_name','$password','$email','$first_name','$last_name','$address','$mobileno','$_SESSION[sid]','$login_date')";
 $result = mysqli_query($con, $sql);
 
-if(!$result){ echo "error"; }
+if(!$result){ echo "error"; var_dump($sql);}
 else{
 
 $_SESSION['name'] = $_POST['user_name'];

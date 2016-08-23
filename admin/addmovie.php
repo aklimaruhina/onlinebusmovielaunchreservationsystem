@@ -11,8 +11,8 @@ if(isset($_POST)){
 	$filetype = $_FILES["movie_poster"] ["type"];
 	$filepath = "../files/".$filename;
 	move_uploaded_file($filetmp, $filepath); 
-	$query = "INSERT INTO `movies` (`movie_id`, `movie_name`, `movie_director`, `movie_decription`, `movie_language`, `movie_poster`, `islive`) 
-	VALUES (NULL, '$movie_name', '$movie_director', '$movie_decription', '$movie_language', '$filepath', '$islive')";
+	$query = "INSERT INTO `movies` (`movie_id`, `movie_name`, `movie_director`, `movie_decription`, `movie_language`, `movie_poster`, `islive`,`image_name`,`image_type`,`image_path`) 
+	VALUES (NULL, '$movie_name', '$movie_director', '$movie_decription', '$movie_language', '$filepath', '$islive','$filename','$filetype','')";
 	
 	$result = mysqli_query($con, $query);
 	if ($result) {
