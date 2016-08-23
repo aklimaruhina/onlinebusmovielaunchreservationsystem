@@ -5,7 +5,7 @@
     header("Location: index.php");
   }
   $path = $config->base_url.'../homepage.php';
-  $signout = $config->base_url.'../functions/logout.php';
+  $signout = $config->base_url.'/../functions/logout.php';
   $signuser = $config->base_url.'/profile.php';
   $bus = $config->base_url.'/bus/bus.php';
   $movie = $config->base_url.'../movies/movie.php';
