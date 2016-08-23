@@ -1,0 +1,253 @@
+/*
+ * Specific styles of signin component
+ */
+/*
+ * General styles
+ */
+body, html {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+}
+
+.card-container.card {
+    max-width: 350px;
+    height: auto;
+    padding: 40px 40px;overflow: hidden;
+}
+
+.btn {
+    font-weight: 700;
+    height: 36px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+/*
+ * Card component
+ */
+.card {
+    background-color: #F7F7F7;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    overflow: hidden;height: auto;
+}
+
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/*
+ * Form styles
+ */
+.profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.reauth-email {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+}
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+}
+
+.btn.btn-signin {
+    /*background-color: #4d90fe; */
+    background-color: rgb(104, 145, 162);
+    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    -o-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -webkit-transition: all 0.218s;
+    transition: all 0.218s;
+}
+
+.btn.btn-signin:hover,
+.btn.btn-signin:active,
+.btn.btn-signin:focus {
+    background-color: rgb(12, 97, 33);
+}
+
+.forgot-password {
+    color: rgb(104, 145, 162);
+}
+
+.forgot-password:hover,
+.forgot-password:active,
+.forgot-password:focus{
+    color: rgb(12, 97, 33);
+}
+body{
+	font-family: 'Open Sans', sans-serif;
+	
+}
+.navbar{
+	border-radius: 0px;
+}
+.text-green{
+	color: #1abc9c;
+}
+.text-default{
+	color: black;
+}
+.text-white{
+	color: white;
+}
+.nav-tabs .col-lg-12{
+	padding: 0px; margin: 0px;
+	border-bottom: 4px solid #1abc9c;
+}
+.ticket-pick{
+	padding-top: 30px;
+}
+.mid-content{
+
+}
+.pick-form{
+	padding-top: 20px;
+}
+.ad-section{
+	border: 4px solid #1abc9c;
+	width: 100%;
+	overflow: hidden;
+}
+.why-buy{
+	padding: 40px 0px;
+	background-color: #fbfbfb;
+}
+.first-whybuy ul li{
+	list-style-type: square;
+	color: #1abc9c;
+}
+.first-whybuy h4{
+	padding-bottom: 15px;
+}
+.scnd-whybuy h4{
+	padding-bottom: 15px;
+}
+.bus-operator{
+	padding-bottom: 20px;
+}
+.operator ul{
+	list-style-type: none;
+}
+.operator ul li{
+	float: left;
+}
+.works-section{
+	border: 1px solid #1abc9c;
+	padding: 20px;
+}
+.works-section ul{
+	list-style-type: square;
+}
+.available-route ul{
+	list-style-type: none;
+}
+.big-menu ul{
+	list-style-type: none;
+	padding: 12px;
+}
+.big-menu ul li{
+	display: inline;
+	margin-left: 7px;
+}
+.big-menu ul li a{
+	color: black;
+}
+.big-menu ul li a:hover{
+	color: #1abc9c;
+}
+.logo-menu ul{
+	list-style-type: none;
+}
+.logo-menu ul li{
+	display: inline;
+	font-size: 30px;
+	letter-spacing: 5px;
+}
+
+
+/* Movies section css */
+.buy-show{
+	padding: 30px 0px;
+}
+.instant-buy{
+	border: 1px solid #dedede;
+}
+.now-showing h4{
+	border-bottom: 3px solid #1abc9c;
+}
+
+
+/* admin_dashboard */
+.content-table{
+	padding-top: 20px;
+}
+.seat-button{
+	margin-bottom: 20px;
+}

@@ -1,0 +1,83 @@
+<?php 
+include_once 'header.php';
+include_once '../include/config.php'; 
+
+$city_from = $_POST['city_from'];
+$city_to = $_POST['city_to'];
+$date1 = explode('/', $_POST['dept_date']);
+$new_date1 = $date1[2].'-'.$date1[1].'-'.$date1[0];
+$date2 = explode('/', $_POST['arr_date']);
+$new_date2 = $date2[2].'-'.$date2[1].'-'.$date2[0];
+
+if($_POST):	
+	// $city_from = $_GET['city_from'];
+	// $city_to = $_GET['city_to'];
+	// $dept_date = $_GET['dept_date'];
+	// $arr_date = $_GET['arr_date'];
+	// $search_btn = mysqli_real_escape_string($_REQUEST['search_btn']);    
+	$query = "SELECT * FROM `launch_info` WHERE `city_from` = '$city_from' AND `city_to` = '$city_to' AND `dept_date` = '$new_date1' AND `arr_date` = '$new_date2'";
+	$result = mysqli_query($con,$query);
+
+  
+	endif;
+?>
+
+<div class="ticket-pick">
+    <div class="container" style="border-bottom:2px solid #1abc9c; padding-bottom:30px">
+      	<div class="row">
+        	<div class="mid-content">
+          		<div class="col-lg-10">
+          			<div class="row">
+            			<div class="col-lg-offset-1">
+             				<h3>About Available Launch information</h3>
+                            <table class="table hover">
+                                <thead>
+                                    <tr>
+                                        <th>Launch / Ship</th>
+                                        <th>Dep.time</th>
+                                        <th>Arr.time</th>
+                                        <th>Departure Date</th>
+                                        <th>Arrival Date</th>
+                                        <th>Fare Range</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php 
+                                    while($row = mysqli_fetch_assoc($result)){
+                                      $id = $row['launch_id'];
+                                      $date = $row['dept_date'];
+                                      // $_SESSION['id'] = $id;
+                                      // $_SESSION['date'] = $row['dept_date'];
+
+                                      // $id = $_SESSION['id'];
+                                      // $date = $_SESSION['date'];
+                                      
+                                      // $dept_date=$row['dept_date'];
+                                      ?>
+
+
+                                    <tr>
+                                        <td><?php echo $row['launch_name'].'<br>'.$row['launch_info'].'<br> Route:'.$row['city_from']."-".$row['city_to'] ?></td>
+                                        <td><?php echo $row['dtime'] ?></td>
+                                        <td><?php echo $row['arrtime'] ?></td>
+                                        <td><?php echo $row['dept_date'] ?></td>
+                                        <td><?php echo $row['arr_date'] ?></td>
+                                        <td><?php echo $row['fare_range'] ?></td>
+                                        <td><a href="selectlaunch.php?id=<?php echo $id."&date=" .urlencode($date)?>">Choose your seat</a></td>
+                                    </tr>
+                                       
+                            <?php
+                        }?>
+                                </tbody>
+                            </table>
+             				
+
+         				</div>
+         			</div>
+         		</div>
+         	</div>
+        </div>
+    </div>
+</div>
+   

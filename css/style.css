@@ -1,0 +1,92 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+.header .col-lg-12{
+    margin: 0px; padding: 0px;
+}
+.header h1{
+    font-weight: 700;
+    font-size: 60px;
+}
+.text-blue{
+    color: rgb(2,143,204);
+}
+.text-white{
+    color: white;
+}
+.text-green{
+    color: #1abc9c;
+}
+.navbar{
+    padding: 10px 0px;
+    border-radius: 0px;
+}
+/*.service{
+    padding: 80px 40px;
+}*/
+.ser_content{
+    padding: 80px;
+}
+.ser_content h2{
+    color: #333333;
+}
+.sign-in {
+    text-align: center;
+    padding: 120px 0px;
+}
+.sign-in a{
+    padding: 15px 20px 15px 20px;
+    border-radius: 20px;
+    border: 3px solid #1abc9c;
+    color: white;
+}
+.sign-in a:hover{
+    background:#1abc9c;
+    color: white;
+}
+.ser_content p{
+    color: rgb(102,102,102);
+}
+.service_icon{
+    padding: 20px;
+    border-radius: 5px;
+    background: rgb(2,143,204);
+    display: inline-block;
+    font-size: 36px;
+    color: white;
+    height: 90px;
+    width: 90px;
+}
+/*.service_info{
+    padding-top: 20px;
+}*/
+.service_info h3{
+    color: #333;
+}
+.service_info p{
+    color: rgb(102,102,102);
+    padding: 0px 15px;
+}
+.service_icon:hover{
+    background-color: #333333;
+}
+.ser_sector{
+    padding-bottom: 80px;
+}
+.about{
+    background: url(../img/about-bg.jpg) no-repeat center center;
+    background-size: cover;
+    padding: 40px 0px;
+}
+.team{
+    padding: 40px 0px;
+}
+.team h3{
+    padding: 20px;
+}
+.footer{
+    background: #222;
+}
+.footer p{
+    padding: 10px;
+}
