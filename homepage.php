@@ -108,7 +108,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="text-green">© 2016 shohoz ticket.</p>
+                        <p class="text-green"> &copy; 2016 shohoz ticket.</p>
                     </div>
                 </div>
             </div>
