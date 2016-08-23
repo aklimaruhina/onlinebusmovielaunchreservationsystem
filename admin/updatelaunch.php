@@ -10,8 +10,8 @@ if($_POST):
 	$dt = $_POST['dtime'];
 	$at = $_POST['arrtime'];
 	$fare_range = $_POST['fare_range'];
-	$dt=date('H:i:s p',strtotime($dt));
-	$at=date('H:i:s p', strtotime($at));
+	$dt=date('H:i:s',strtotime($dt));
+	$at=date('H:i:s', strtotime($at));
 	$date1 = explode('/', $_POST['dept_date']);
 	$new_date1 = $date1[2].'-'.$date1[1].'-'.$date1[0];
 	$date2 = explode('/', $_POST['arr_date']);
