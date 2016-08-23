@@ -2,10 +2,9 @@
   session_start(); 
   include '../include/config.php';
   if(!isset($_SESSION['sid'])){   
-    header("Location: index.php");
+    header("Location: ../index.php");
   }
   $path = $config->base_url.'/homepage.php';
-  $signout = $config->base_url.'/functions/logout.php';
   $signuser = $config->base_url.'/profile.php';
   $movie = $config->base_url.'/movies/movie.php';
   $allmovie= $config->base_url.'/movies/all-movie.php';
