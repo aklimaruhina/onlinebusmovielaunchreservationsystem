@@ -83,7 +83,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="text-center animated wow fadeInLeftBig" data-wow-duration="1s" data-wow-delay="650ms">Welcome</h3>
+                        <h3 class="text-center animated wow fadeInLeftBig" data-wow-duration="1s" data-wow-delay="650ms"><?php echo "Welcome".$_SESSION['first_name']  ?></h3>
                         <h2 class="text-center animated wow fadeInRightBig" data-wow-duration="1s" data-wow-delay="650ms">Select your desired option</h2>
                     </div>
                 </div>
@@ -107,4 +107,3 @@
         
         
         
-      
