@@ -5,29 +5,8 @@ include_once '../include/config.php';
 //var_dump($_GET);die;
 $date =urldecode( $_GET['date']);
 $busnum = $_GET['id'];
-// $date = $_GET['date'];
-
-// $date = $_GET['dept_date'];
 
 $query = "SELECT * FROM `bus_reserve` where id = '$busnum' AND dept_date = '$date'";
-
-// $result = $mysqli->query($query);
-// $query2 = "INSERT INTO `reserve_list` (`id`, `total_reserve`, `busno`) VALUES (NULL, '$qty', '$busnum')";
-// $resul2 = $mysqli->query($query2);
-// $query3 = "SELECT SUM(`total_reserve`) as reserve FROM `reserve_list` WHERE `busno`= ".$busnum;
-
-// while($obj= $result->fetch_object()){
-//     $numofseats=$obj->seat;
-//     $result3 = $mysqli->query($query3);
-//     while($objj = $result3->fetch_object()){
-//         $inogbuwin = $objj->reserve;
-//     }
-//     $result3->free();
-//     $avail=$numofseats-$inogbuwin;
-//     $setnum=$inogbuwin+1;
-// }
-// $result->free();
-
 
 ?>
 <div class="ticket-pick">
@@ -99,42 +78,6 @@ $query = "SELECT * FROM `bus_reserve` where id = '$busnum' AND dept_date = '$dat
 include_once 'footer.php'; ?>
 <script>
 function onChangeOfNoOfSeats(str) {
-  /*
-  if (str=="") {
-    document.getElementById("txtHint").innerHTML="";
-    return;
-  }
-  if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp=new XMLHttpRequest();
-  } else { // code for IE6, IE5
-    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xmlhttp.onreadystatechange=function() {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-      document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
-    }
-  }
-  xmlhttp.open("GET","ajax_book_bus.php?q="+str,true);
-  xmlhttp.send();
-  */
   $('#img_link').load("ajax_book_bus.php?q="+str,true);
 }
 </script>
-// <script>
-//     $(document).ready(function(){
-//         var path = '../ajax_validations/ajax_book_bus.php';
-//         $(document).on('change', "#no-of-seats", function(){
-//             var no_of_seats_id = $("#no-of-seats option:selected").attr('value');
-//             pathArray = window.location.pathname.split( '/' );
-//             host = pathArray[0];
-//             $.ajax({
-//                 url:host+path+'?no_of_seats_id='+no_of_seats_id,
-//                 success:function(data){
-//                     $('#total-amount-seats-book').html(data);
-//                     $("#no-of-seats option[value="+no_of_seats_id+"]").attr("selected","selected");
-//                 }
-//             });
-//         });
-//     });
-// </script>

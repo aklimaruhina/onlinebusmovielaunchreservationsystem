@@ -70,9 +70,9 @@ include_once 'header.php';?>
 							    </div>
                       		</div>
                       		<div class="form-group">
-                      			<label for="seat" class="col-sm-2 control-label">Total Seat</label>
+                      			<label for="seat" class="col-sm-2 control-label">Total Cabin</label>
                       			<div class="col-sm-10">
-							    	<input type="number" class="form-control" name="seat" placeholder="Enter total seat">
+							    	<input type="number" class="form-control" name="seat" placeholder="Enter total cabin">
 							    </div>
                       		</div>
                           <div class="form-group">

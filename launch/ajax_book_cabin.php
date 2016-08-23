@@ -1,8 +1,9 @@
  <?php
-$servername = "localhost";
-$username = "root"; 
-$password = "";
-$dbname = "book_myshow";
+$servername = "www.db4free.net";
+$username = "ruhina05"; 
+$password = "0a4bfb";
+$dbname = "ttticketing";
+
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

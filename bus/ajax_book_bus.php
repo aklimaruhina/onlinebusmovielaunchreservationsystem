@@ -1,8 +1,8 @@
  <?php
-$servername = "localhost";
-$username = "root"; 
-$password = "";
-$dbname = "book_myshow";
+$servername = "www.db4free.net";
+$username = "ruhina05"; 
+$password = "0a4bfb";
+$dbname = "ttticketing";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -14,9 +14,7 @@ ON reserve_section.reserve_seat_id  =bus_reserve.reserve_seat_id WHERE bus_reser
     // set the resulting array to associative
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
     $result=$stmt->fetchAll();
-     echo "<pre>";
-    print_r($result);
-    echo "</pre>";
+   
  /*   
     echo "<pre>";
     print_r($result);
