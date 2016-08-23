@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Oxizen Work</title>
+        <title>Bus Launch Movie</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -136,7 +136,7 @@
                 <div class="row ">
                     <div class="col-lg-12">
                         <div class="sign-in">
-                        <a href="login.php" class="btn animated fadeInUpBig" data-wow-duration="2s"><b>Let's Start</b></a>
+                        <a href="login.php" class="btn animated wow fadeInUpBig" data-wow-duration="2s" data-wow-delay="650ms"><b>Let's Start</b></a>
                     </div>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
             </div>
         </div>
         
-        <div class="footer">
+        <div class="front_footer">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -165,12 +165,11 @@
         </div>
         
         <script src="js/parallax.min.js"></script>
-        <script src="js/jquery-1.12.3.min.js"></script>
+        <script src="js/jquery.min.js"></script>
         <script src="js/wow.min.js"></script>
+    <script>
+              new WOW().init();
+              </script>
         <script src="js/bootstrap.min.js"></script>
-        <script>
-         new WOW().init();
-
-        </script>
     </body>
 </html>

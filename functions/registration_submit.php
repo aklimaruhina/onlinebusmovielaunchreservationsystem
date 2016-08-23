@@ -3,6 +3,7 @@ session_start();
 
 include '../include/config.php';
 $_SESSION['sid']=session_id();
+
 $login_time=strtotime('now');
 $login_date = date('Y-m-d',$login_time);
 $user_name = $_POST['user_name'];
@@ -13,9 +14,9 @@ $last_name = $_POST['last_name'];
 $address = $_POST['address'];
 $mobileno = $_POST['mobileno'];
 
-$sql="INSERT INTO users (`user_name`,`password`,`email`,`first_name`,`last_name`,`address`,`mobile_number`,`sid`,`login_time`)
+$sql="INSERT INTO users (`user_name`,`password`,`email`,`first_name`,`last_name`,`address`,`mobile_number`,`sid`,`login_time`,`logout_time`)
 VALUES
-('$user_name','$password','$email','$first_name','$last_name','$address','$mobileno','$_SESSION[sid]','$login_date')";
+('$user_name','$password','$email','$first_name','$last_name','$address','$mobileno','$_SESSION[sid]','$login_date','')";
 $result = mysqli_query($con, $sql);
 
 if(!$result){ echo "error"; var_dump($sql);}
