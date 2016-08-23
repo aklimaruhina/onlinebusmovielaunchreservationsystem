@@ -130,7 +130,7 @@ include_once 'header.php';?>
                             </div>
                           </div>
                       		<div class="col-lg-5 col-md-offset-5 pull-right" style="padding-top: 15px;">
-                 				<button type="submit" style="background:#1abc9c" class="form-control"><span class="glyphicon glyphicon-plus"></span>Added Buses</button>
+                 				<button type="submit" style="background:#1abc9c" class="form-control"><span class="glyphicon glyphicon-plus"></span>Added Launch</button>
                 			</div>
                       	</form>
                     </div>

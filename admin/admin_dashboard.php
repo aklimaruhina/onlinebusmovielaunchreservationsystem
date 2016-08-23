@@ -41,7 +41,7 @@ $row_cnt = $result->num_rows;
                                     {echo "user"; }
                                 else{echo "admin";}?>
                             </td>
-                                <td></td>
+                                <td><a href="dltuser.php?id=<?php echo $row_cnt['user_id'] ?>">Delete</a></td>
                               </tr>
                             <?php 
                         } ?>       

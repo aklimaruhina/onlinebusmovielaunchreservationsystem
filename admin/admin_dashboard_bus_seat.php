@@ -43,7 +43,7 @@ $even_odd = '';
 		                    <td><?php echo $bus_query_row->transaction_code ?></td>
 		                    <td><?php echo $bus_query_row->payable; ?></td>
 		                    <td><?php echo $bus_query_row->date; ?></td>
-		                    <td><a href="#" class="btn btn-warning">Delete</a></td>
+		                    <td><a href="deltres.php?id=<?php echo $bus_query_row->id ?>" class="btn btn-warning">Delete</a></td>
 
 					        </tr>
 		    		<?php } 
