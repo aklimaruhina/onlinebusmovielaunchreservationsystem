@@ -4,11 +4,10 @@
   if(!isset($_SESSION['sid'])){   
     header("Location: index.php");
   }
-  $path = $config->base_url.'../homepage.php';
-  $signout = $config->base_url.'/../functions/logout.php';
+  $path = $config->base_url.'/homepage.php';
   $signuser = $config->base_url.'/profile.php';
   $bus = $config->base_url.'/bus/bus.php';
-  $movie = $config->base_url.'../movies/movie.php';
+  $movie = $config->base_url.'/movies/movie.php';
 ?>
 <!DOCTYPE html>
 <html>
