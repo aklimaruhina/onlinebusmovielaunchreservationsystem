@@ -18,15 +18,16 @@ include_once 'header.php';
 
             //if(isset($_SESSION['sid'])){
                 if($member['sid'] == 1){
-                    // $sid_insert = "UPDATE users SET sid = '$_SESSION[sid]', login_time = '$login_time' WHERE user_name = '$_POST[username]'";
-                    // $result1 = mysqli_query($sid_insert);
-                    header("Location: homepage.php");
-                }
-                else{
                     $sid_insert = "UPDATE users SET sid = '$_SESSION[sid]', login_time = '$login_time' WHERE user_name = '$_POST[username]'";
                     $result1 = mysqli_query($sid_insert);
 
                     header("Location: admin/admin_dashboard.php");
+                    // $sid_insert = "UPDATE users SET sid = '$_SESSION[sid]', login_time = '$login_time' WHERE user_name = '$_POST[username]'";
+                    // $result1 = mysqli_query($sid_insert);
+                    // 
+                }
+                else{
+                    header("Location: homepage.php");
                 }
                 
         //  if($member['rid']==1){
