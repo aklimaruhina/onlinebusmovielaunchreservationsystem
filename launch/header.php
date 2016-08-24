@@ -2,7 +2,7 @@
   session_start(); 
   include '../include/config.php';
   if(!isset($_SESSION['sid'])){   
-    header("Location: ../index.php");
+    header("location: ../index.php");
   }
   $path = $config->base_url.'/homepage.php';
   $signuser = $config->base_url.'/profile.php';
