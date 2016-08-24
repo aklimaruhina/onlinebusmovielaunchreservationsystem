@@ -172,7 +172,7 @@
 
                     <div class="col-lg-3">
                         <div class="members wow bounceInRight text-center" data-wow-iteration="1">
-                            <img src="img/sushmita.PNG" class="img-circle">
+                            <img src="img/sushmita.jpg" class="img-circle">
                             <h5 class="text-center">Sushmita</h5>
                             <h6 class="text-center">Designer</h6>
                         </div>
