@@ -140,7 +140,7 @@
                 <div class="row">
                     <div class="col-lg-12"> 
                         <h3 class="text-center wow fadeInDown animated" data-wow-duration="2s">About Us</h3>
-                        <p class="text-center wow fadeInUp animated">A trusted service backed by customer service excellence and innovation in operations, Shohoz<span class="text-green> ticket.</span> provides information about pricing, availability, timings, and booking facility for bus tickets, hotel reservations and launch tickets. If you do not have access to internet, you can call 12345 and get your bookings done. You can pay for the tickets or hotel bookings via credit / debit cards, mobile payment gateways like bKash or cash. We offer Cash on Delivery (CoD), where you pay for your tickets or bookings in cash once your receive them at your doorstep</p>
+                        <p class="text-center wow fadeInUp animated">A trusted service backed by customer service excellence and innovation in operations, Shohoz ticket provides information about pricing, availability, timings, and booking facility for bus tickets, hotel reservations and launch tickets. If you do not have access to internet, you can call 12345 and get your bookings done. You can pay for the tickets or hotel bookings via credit / debit cards, mobile payment gateways like bKash or cash. We offer Cash on Delivery (CoD), where you pay for your tickets or bookings in cash once your receive them at your doorstep</p>
                     </div>
 
         	<div class="row" style="padding-top: 20px">
