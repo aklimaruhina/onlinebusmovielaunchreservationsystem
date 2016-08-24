@@ -23,6 +23,9 @@ include_once 'header.php';
                     header("Location: homepage.php");
                 }
                 else{
+                    $sid_insert = "UPDATE users SET sid = '$_SESSION[sid]', login_time = '$login_time' WHERE user_name = '$_POST[username]'";
+                    $result1 = mysqli_query($sid_insert);
+
                     header("Location: admin/admin_dashboard.php");
                 }
                 
