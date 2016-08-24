@@ -17,9 +17,9 @@ include_once 'header.php';
             $role=$member['rid'];
 
             //if(isset($_SESSION['sid'])){
-                if($member['sid'] == 0){
-                    $sid_insert = "UPDATE users SET sid = '$_SESSION[sid]', login_time = '$login_time' WHERE user_name = '$_POST[username]'";
-                    $result1 = mysqli_query($sid_insert);
+                if($member['sid'] == 1){
+                    // $sid_insert = "UPDATE users SET sid = '$_SESSION[sid]', login_time = '$login_time' WHERE user_name = '$_POST[username]'";
+                    // $result1 = mysqli_query($sid_insert);
                     header("Location: homepage.php");
                 }
                 else{
