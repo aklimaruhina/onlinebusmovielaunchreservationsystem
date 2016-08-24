@@ -15,8 +15,6 @@
           <li><a href="#">TERMS OF USE</a></li>
           <li><a href="#">PRIVACY</a></li>
           <li><a href="#">POLICY</a></li>
-          <li><a href="#">CANCELLATION POLICY</a></li>
-          <li><a href="#">SHOHOZ PARTNERS</a></li>
           <li><a href="#">CONTACT US</a></li>
         </ul>
       </div>
@@ -42,14 +40,14 @@
         </div>
         <hr style="border-color:#dddddd">
         <div class="footer">
-          <p class="text-center">&copy;2015 Shohoz-Ticket. All Rights Reserved. </p>
+          <p class="text-center">&copy;2015 Shohoz<span class="text-green"> ticket.</span> All Rights Reserved. </p>
           <hr style="border-color:#dddddd">
           <div class="footer-content" style="color:#a3a3a3">
             <p class="text-center">
-              Shohoz.com, owned and operated by Shohoj Limited, is a premium online travel service provider which aims to make long distance travel in Bangladesh easy and convenient. Driven by the passion to serve you better, Shohoz.com went on to pioneer the online travel industry by offering bus tickets, hotel reservation and launch tickets
+              Shohoz<span class="text-green"> ticket.</span>, owned and operated by Shohoj Limited, is a premium online travel service provider which aims to make long distance travel in Bangladesh easy and convenient. Driven by the passion to serve you better, Shohoz.com went on to pioneer the online travel industry by offering bus tickets, hotel reservation and launch tickets
             </p><br>
             <p class="text-center">Our team of energetic and young professionals with deep expertise in eCommerce and travel domains, leave no stone unturned to provide you the best of services at minimal costs through our user friendly website, mobile optimized WAP site, and a multi-lingual call center. </p><br>
-            <p class="text-center">A trusted service backed by customer service excellence and innovation in operations, Shohoz.com provides information about pricing, availability, timings, and booking facility for bus tickets, hotel reservations and launch tickets. If you do not have access to internet, you can call 16374 and get your bookings done. You can pay for the tickets or hotel bookings via credit / debit cards, mobile payment gateways like bKash or cash. We offer Cash on Delivery (CoD), where you pay for your tickets or bookings in cash once your receive them at your doorstep. </p>
+            <p class="text-center">A trusted service backed by customer service excellence and innovation in operations, Shohoz<span class="text-green"> ticket.</span> provides information about pricing, availability, timings, and booking facility for bus tickets, hotel reservations and launch tickets. If you do not have access to internet, you can call 16374 and get your bookings done. You can pay for the tickets or hotel bookings via credit / debit cards, mobile payment gateways like bKash or cash. We offer Cash on Delivery (CoD), where you pay for your tickets or bookings in cash once your receive them at your doorstep. </p>
           </div>
         </div>
       </div>

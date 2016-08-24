@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
         <title>Bus Launch Movie</title>
@@ -20,9 +20,6 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <img src="img/1.jpg" alt="slide_1" class="img-responsive wow slideInDown animated" style="width: 100%;">
-<!--                                    <div class="caption my_caption"> 
-                                        <h1 class="animated fadeInLeftBig">Welcome to<span class="text-blue"> Oxygen</span></h1>
-                                    </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -30,9 +27,6 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <img src="img/2.jpg" alt="slide_2" class="img-responsive wow slideInLeft animated" style="width: 100%">
-<!--                                    <div class="caption my_caption">
-                                        <h1 class="animated fadeInLeftBig">Welcome to<span class="text-blue"> Oxygen</span></h1>
-                                    </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -40,9 +34,6 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <img src="img/3.jpg" alt="slide_3" class="img-responsive wow slideInRight animated" style="width: 100%">
-<!--                                    <div class="caption my_caption">
-                                        <h1 class="animated fadeInLeftBig">Welcome to<span class="text-blue"> Oxygen</span></h1>
-                                    </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +75,7 @@
                         <div class="ser_content">
                             <h2 class="text-center">Our Services</h2>
                             <p class="text-center">
-                            Shohoz.com, owned and operated by Shohoj Limited, is a premium online travel service provider which aims to make long distance travel in Bangladesh easy and convenient. Driven by the passion to serve you better, Shohoz.com went on to pioneer the online travel industry by offering bus tickets, hotel reservation and launch tickets.
+                            Shohoz<span class="text-green> ticket.</span>, owned and operated by Shohoj Limwaited, is a premium online travel service provider which aims to make long distance travel in Bangladesh easy and convenient. Driven by the passion to serve you better, Shohoz<span class="text-green> ticket.</span> went on to pioneer the online travel industry by offering bus tickets, hotel reservation and launch tickets.
                             </p>
                         </div>
                     </div>
@@ -143,16 +134,53 @@
             </div>
         </div>
         
-        <div class="team">
+
+           <div class="team">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12"> 
                         <h3 class="text-center wow fadeInDown animated" data-wow-duration="2s">About Us</h3>
-                        <p class="text-center wow fadeInUp animated">A trusted service backed by customer service excellence and innovation in operations, Shohoz.com provides information about pricing, availability, timings, and booking facility for bus tickets, hotel reservations and launch tickets. If you do not have access to internet, you can call 12345 and get your bookings done. You can pay for the tickets or hotel bookings via credit / debit cards, mobile payment gateways like bKash or cash. We offer Cash on Delivery (CoD), where you pay for your tickets or bookings in cash once your receive them at your doorstep</p>
+                        <p class="text-center wow fadeInUp animated">A trusted service backed by customer service excellence and innovation in operations, Shohoz ticket provides information about pricing, availability, timings, and booking facility for bus tickets, hotel reservations and launch tickets. If you do not have access to internet, you can call 12345 and get your bookings done. You can pay for the tickets or hotel bookings via credit / debit cards, mobile payment gateways like bKash or cash. We offer Cash on Delivery (CoD), where you pay for your tickets or bookings in cash once your receive them at your doorstep</p>
                     </div>
                 </div>
-            </div>
-        </div>
+                	<div class="row">
+                            <div class="team_members" style="padding-top: 15px;">
+                                   <h3 class="text-center wow fadeInUpBig animated" data-wow-duration="2s" style="padding-bottom: 40px;padding-top: 20px;">Our team</h3>
+                    <div class="col-lg-3">
+                        <div class="members wow bounceInLeft text-center" data-wow-iteration="1">
+                            <img src="img/rakib.PNG" class="img-circle">
+                            <h5 class="text-center">Rakibul Hasan</h5>
+                            <h6 class="text-center">Designer and Developer</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="members wow bounceInLeft text-center" data-wow-iteration="1">
+                            <img src="img/reza.jpg" class="img-circle">
+                            <h5 class="text-center">Rezaul Karim</h5>
+                            <h6 class="text-center">Designer</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="members wow bounceInRight text-center" data-wow-iteration="1">
+                            <img src="img/onik.PNG" class="img-circle">
+                            <h5 class="text-center">Noore Alam</h5>
+                            <h6 class="text-center">Advisor</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="members wow bounceInRight text-center" data-wow-iteration="1">
+                            <img src="img/sushmita.jpg" class="img-circle">
+                            <h5 class="text-center">Sushmita</h5>
+                            <h6 class="text-center">Designer</h6>
+                        </div>
+                    </div>
+                            </div>
+                        </div>
+             </div>
+           </div>
         
         <div class="front_footer">
             <div class="container">

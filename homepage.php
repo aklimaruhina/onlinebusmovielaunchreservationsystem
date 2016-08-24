@@ -33,9 +33,6 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <img src="img/1.jpg" alt="slide_1" class="img-responsive wow slideInDown animated" style="width: 100%;">
-<!--                                    <div class="caption my_caption"> 
-                                        <h1 class="animated fadeInLeftBig">Welcome to<span class="text-blue"> Oxygen</span></h1>
-                                    </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -43,9 +40,6 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <img src="img/2.jpg" alt="slide_2" class="img-responsive wow slideInLeft animated" style="width: 100%">
-<!--                                    <div class="caption my_caption">
-                                        <h1 class="animated fadeInLeftBig">Welcome to<span class="text-blue"> Oxygen</span></h1>
-                                    </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -53,9 +47,6 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <img src="img/3.jpg" alt="slide_3" class="img-responsive wow slideInRight animated" style="width: 100%">
-<!--                                    <div class="caption my_caption">
-                                        <h1 class="animated fadeInLeftBig">Welcome to<span class="text-blue"> Oxygen</span></h1>
-                                    </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -99,6 +90,16 @@
                             <a href="<?php echo $launch ?> " class="btn animated wow fadeInUpBig" data-wow-duration="1000ms" data-wow-delay="650ms"><b>Launch</b></a>
                             <a href="<?php echo $movie ?> " class="btn animated wow fadeInUpBig" data-wow-duration="1000ms" data-wow-delay="650ms"><b>Movie</b></a>
                     </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+	<div class="front_footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-green"> &copy; 2016 shohoz ticket.</p>
                     </div>
                 </div>
             </div>
