@@ -15,8 +15,6 @@
           <li><a href="#">TERMS OF USE</a></li>
           <li><a href="#">PRIVACY</a></li>
           <li><a href="#">POLICY</a></li>
-          <li><a href="#">CANCELLATION POLICY</a></li>
-          <li><a href="#">SHOHOZ PARTNERS</a></li>
           <li><a href="#">CONTACT US</a></li>
         </ul>
       </div>
