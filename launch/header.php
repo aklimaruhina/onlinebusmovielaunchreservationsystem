@@ -4,9 +4,11 @@
   if(!isset($_SESSION['sid'])){   
     header("Location: ../index.php");
   }
-  $path = $config->base_url.'../homepage.php';
+  $path = $config->base_url.'/homepage.php';
   $signuser = $config->base_url.'/profile.php';
   $launch = $config->base_url.'/launch/launch.php';
+  $signout = $config->base_url.'/functions/logout.php';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,7 +31,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="<?php echo $launch ?>"><i class="fa fa-film"></i>Launch</a></li>
           <li><a href="<?php echo $signuser ?> "><?php echo $_SESSION['first_name']." ".$_SESSION['last_name'] ?></a></li>
-          <li><a href="<?php echo $signout ?>">SignOut</a></li>
+          <li><a href="<?php echo $signout ?>">LogOut</a></li>
         </ul>
       </div>
   </nav>

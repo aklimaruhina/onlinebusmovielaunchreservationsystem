@@ -8,6 +8,8 @@
   $signuser = $config->base_url.'/profile.php';
   $movie = $config->base_url.'/movies/movie.php';
   $allmovie= $config->base_url.'/movies/all-movie.php';
+  $signout = $config->base_url.'/functions/logout.php';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +33,7 @@
           <li><a href="<?php echo $allmovie ?>"><i class="fa fa-film"></i>All</a></li>
           <li class="active"><a href="<?php echo $movie ?>"><i class="fa fa-film"></i>Movies</a></li>
           <li><a href="<?php echo $signuser ?> "><?php echo $_SESSION['first_name']." ".$_SESSION['last_name'] ?></a></li>
-          <li><a href="<?php echo $signout ?>">SignOut</a></li>
+          <li><a href="<?php echo $signout ?>">Signout</a></li>
           
         </ul>
       </div>

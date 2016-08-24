@@ -8,6 +8,8 @@
   $signuser = $config->base_url.'/profile.php';
   $bus = $config->base_url.'/bus/bus.php';
   $movie = $config->base_url.'/movies/movie.php';
+  $signout = $config->base_url.'/functions/logout.php';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +32,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="<?php echo $bus ?>"><i class="fa fa-film"></i>Bus</a></li>
           <li><a href="<?php echo $signuser ?> "><?php echo $_SESSION['first_name']." ".$_SESSION['last_name'] ?></a></li>
-          <li><a href="<?php echo $signout ?>">SignOut</a></li>
+          <li><a href="<?php echo $signout ?>">LogOut</a></li>
         </ul>
       </div>
   </nav>

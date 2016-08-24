@@ -9,7 +9,7 @@
   $signuser = $config->base_url.'/profile.php';
   $bus = $config->base_url.'/bus/bus.php';
   $launch = $config->base_url.'/launch/launch.php';
-  $movie = $config->base_url.'/movies/movie.php';
+  $movie = $config->base_url.'/movies/all-movie.php';
 ?>
 <!DOCTYPE html>
 <html>
