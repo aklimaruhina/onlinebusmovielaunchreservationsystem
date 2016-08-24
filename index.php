@@ -155,21 +155,21 @@
                         <div class="members wow bounceInLeft text-center" data-wow-iteration="1">
                             <img src="img/reza.jpg" class="img-circle">
                             <h5 class="text-center">Rezaul Karim</h5>
-                            <h6 class="text-center">Designer and Developer</h6>
+                            <h6 class="text-center">Designer</h6>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="members wow bounceInRight text-center" data-wow-iteration="1">
                             <img src="img/onik.PNG" class="img-circle">
                             <h5 class="text-center">Noore Alam</h5>
-                            <h6 class="text-center">Designer and Developer</h6>
+                            <h6 class="text-center">Advisor</h6>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="members wow bounceInRight text-center" data-wow-iteration="1">
                             <img src="img/sushmita.PNG" class="img-circle">
                             <h5 class="text-center">Sushmita</h5>
-                            <h6 class="text-center">Designer and Developer</h6>
+                            <h6 class="text-center">Designer</h6>
                         </div>
                     </div>
                 </div>
