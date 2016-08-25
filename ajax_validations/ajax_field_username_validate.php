@@ -23,5 +23,4 @@ else{
 	print "<div class='field-error col-sm-4' id='field-error-username'>User Name is a required field.</div>";
 	//print "User Name is a required field.";
 }
-
 ?>

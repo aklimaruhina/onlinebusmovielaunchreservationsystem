@@ -33,12 +33,13 @@ $qry_q_row = mysqli_fetch_object($qry_q);
 
 $_SESSION['user_id'] = $qry_q_row->user_id;
 
-mysqli_close($con);
 
 if(isset($_SESSION['sid'])){ 
 	$path = $config->base_url."/homepage.php";
 	header("Location: $path");
 } 
 }
+mysqli_close($con);
+
 ?> 
 
