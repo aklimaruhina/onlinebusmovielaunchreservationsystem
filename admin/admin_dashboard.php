@@ -1,10 +1,16 @@
 <?php 
-include_once 'session.php';
 include_once 'header.php'; 
+
+$query1 = "SELECT * FROM users";
+$success = mysqli_query($con,$query1) or die(mysqli_error($con));
+$row_cnt = mysqli_num_rows($success);
+// $data = mysqli_fetch_assoc($success);
+// $row_cnt = $result->num_rows;
+
 // include_once '../include/config.php';
-$query = "SELECT * FROM users";
-$result = mysqli_query($con, $query) or trigger_error($mysqli->error."[$query]");
-$row_cnt = $result->num_rows;
+// $query = "SELECT * FROM users";
+// $result = mysqli_query($con, $query) or trigger_error($mysqli->error."[$query]");
+// 
 ?>
 
 
@@ -14,10 +20,6 @@ $row_cnt = $result->num_rows;
                 <table class="table table-bordered">
                     <thead>
                         <tr class="active">
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Address</th>
-                            <th>Contact</th>
                             <th>User Name</th>
                             <th>Email</th>
                             <th>Role</th>
@@ -26,26 +28,22 @@ $row_cnt = $result->num_rows;
                     </thead>
                     <tbody>
                         <?php if ($row_cnt>0): ?>
-                        <?php while ($row_cnt = $result->fetch_assoc()) {
+                        <?php while ($row_cnt = $success->fetch_assoc()) {
                             ?>
                             <tr>
-                                <td><?php echo $row_cnt['first_name'] ?></td>
-                                <td><?php echo $row_cnt['last_name'] ?></td>
-                                <td><?php echo $row_cnt['address'] ?></td>
-                                <td><?php echo $row_cnt['mobile_number'] ?></td>
-                                <td><?php echo $row_cnt['user_name'] ?></td>
+                                <td><?php echo $row_cnt['username'] ?></td>
                                 <td><?php echo $row_cnt['email']; ?></td>
 
                                 <td><?php 
-                                if($row_cnt['sid']==0)
+                                if($row_cnt['is_admin']==0)
                                     {echo "user"; }
                                 else{echo "admin";}?>
                             </td>
-                                <td><a href="dltuser.php?id=<?php echo $row_cnt['user_id'] ?>">Delete</a></td>
+                                <td><a href="dltuser.php?id=<?php echo $row_cnt['id'] ?>" class="btn btn-warning">Delete</a></td>
                               </tr>
                             <?php 
                         } ?>       
-                            
+                            <!-- $result->close(); -->
                         <?php endif ?>
                     </tbody>
                   
@@ -54,4 +52,7 @@ $row_cnt = $result->num_rows;
 			</div>
 		</div>
 	</div>
-<?php include_once 'footer.php'; ?>
+<?php include_once 'footer.php';
+/* close connection */
+mysqli_close($con);
+ ?>

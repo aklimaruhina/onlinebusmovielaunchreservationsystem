@@ -1,5 +1,4 @@
 <?php 
-include_once 'session.php';
 
 include_once 'header.php'; 
 // include_once '../include/config.php';
@@ -11,7 +10,7 @@ $row_cnt = $result->num_rows;
 <div class="content-table">
 	<div class="container">
 		<div class="col-lg-12">
-			<div class="pull-right"><a href="newlaunch.php" class="btn btn-primary">Add new Launch route</a></div>
+			<div class="pull-right seat-button"><a href="newlaunch.php" class="btn btn-primary">Add new Launch route</a></div>
 
 	        <table class="table table-bordered">
 	        	<thead>
@@ -68,4 +67,6 @@ $row_cnt = $result->num_rows;
 		</div>
 	</div>
 </div>
-<?php include_once 'footer.php'; ?>
+<?php include_once 'footer.php'; 
+mysqli_close($con);
+?>

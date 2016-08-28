@@ -1,5 +1,5 @@
 <?php 
-include_once '../include/config.php';
+include_once '../lib/database.php';
 if(isset($_POST)){
 	$movie_name = $_POST['mvname'];
 	$movie_director = $_POST['mvdirector'];
@@ -14,7 +14,7 @@ if(isset($_POST)){
 	$query = "INSERT INTO `movies` (`movie_id`, `movie_name`, `movie_director`, `movie_decription`, `movie_language`, `movie_poster`, `islive`,`image_name`,`image_type`,`image_path`) 
 	VALUES (NULL, '$movie_name', '$movie_director', '$movie_decription', '$movie_language', '$filepath', '$islive','$filename','$filetype','')";
 	
-	$result = mysqli_query($con, $query);
+	$result = mysqli_query($con, $query) or die(mysqli_error($con));
 	if ($result) {
 		header("location: admin_dashboard_movie.php");
 		exit();

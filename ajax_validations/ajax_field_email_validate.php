@@ -1,13 +1,13 @@
 <?php
-include '../include/config.php';
+include '../lib/database.php';
 
 /**
  * Validating Email Address
  */
 if(!empty($_REQUEST['email'])){
 	$email = $_REQUEST['email'];
-	$query_email = "SELECT user_id FROM users WHERE email = '$email'";
-	$chk_email = mysqli_query($con, $query_email);
+	$query_email = "SELECT id FROM users WHERE email = '$email'";
+	$chk_email = mysqli_query($con, $query_email) or die(mysqli_error($con));
 	//$rc = mysql_affected_rows();
 	if(mysqli_num_rows($chk_email)) {
 		print "<div class='field-error col-sm-4' id='field-error-email'>Email Address is not available, Please choose another Email Address.</div>";

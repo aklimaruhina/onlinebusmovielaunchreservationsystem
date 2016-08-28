@@ -1,5 +1,4 @@
 <?php
-include_once 'session.php';
 include_once 'header.php'; 
 // include('../include/config.php');
 $bus_query = "SELECT * FROM `reserve_section`"; 
@@ -57,4 +56,6 @@ $even_odd = '';
 		</div>
 	</div>
 </div>
-<?php include_once 'footer.php'; ?>
+<?php include_once 'footer.php'; 
+mysqli_close($con);
+?>

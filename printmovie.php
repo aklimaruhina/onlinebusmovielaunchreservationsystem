@@ -1,5 +1,5 @@
 <?php 
-include 'include/config.php';
+include 'lib/app.php';
 $id = $_GET['id'];
 $query = "SELECT mv.movie_id, mv.movie_name, th.theatre_name, b_t_f_t.date_of_booking, s_t.show_time, t_r.ticket_price, t_r.ticket_type, b_t_f_t.number_of_seats, b_t_f_t.seat_numbers, b_t_f_t.booking_id
               FROM booking_ticket_for_theatre b_t_f_t

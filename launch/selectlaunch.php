@@ -1,10 +1,9 @@
 <?php 
 include_once 'header.php'; 
-include_once '../include/config.php';
 
 //var_dump($_GET);die;
 $date =urldecode( $_GET['date']);
-$lnid = $_GET['id'];
+$lnid = $_GET['lnid'];
 
 $query = "SELECT * FROM `launch_info` where launch_id = '$lnid' AND dept_date = '$date'";
 
@@ -17,9 +16,9 @@ $query = "SELECT * FROM `launch_info` where launch_id = '$lnid' AND dept_date = 
           		<div class="col-lg-6">
           			<div class="row">
             			<div class="col-lg-offset-1">
-            				<form action="savelaunch.php?id=<?php echo $lnid.'&date='.$date;?>" method="post"><!-- savequantity.php?id=<?php #echo $busnum.'&date='.$date;?>? -->
+            				<form action="savelaunch.php?id=<?php echo $id."&lnid= ".$lnid.'&date='.$date;?>" method="post"><!-- savequantity.php?id=<?php #echo $busnum.'&date='.$date;?>? -->
                                 <div class="form-group">
-                                    <input type="hidden" name="id" value="<?php echo $lnid; ?>" >
+                                    <input type="hidden" name="lnid" value="<?php echo $lnid; ?>" >
                                     <input type="hidden" name="date" value="<?php echo $date ?>">
                                 </div>
                                 <input type="hidden" id="selected_seat" name="selected_seat" value="" />

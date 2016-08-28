@@ -1,5 +1,4 @@
 <?php 
-include_once 'session.php';
 
 include_once 'header.php'; 
 // include('../include/config.php');
@@ -85,7 +84,7 @@ $even_odd = '';
 		    		 		<td><?php echo $movie_row2->movie_decription  ?></td>
 		    		 		<td><?php echo $movie_row2->movie_director?></td>
 		    		 		<td><?php echo $movie_row2->movie_language ?></td>
-		    		 		<td><img src="../<?php echo $movie_row2->movie_poster ?>" width="100" height="100"></td>
+		    		 		<td><img src="<?php echo $movie_row2->movie_poster ?>" width="100" height="100"></td>
 		    		 		<td><?php echo $movie_row2->islive ?></td>
 		    		 		<td>
 		    		 			<a href="#" id="<?php echo $movie_row2->movie_id ?>" class="delbutton" title="Click To Delete">delete</a>

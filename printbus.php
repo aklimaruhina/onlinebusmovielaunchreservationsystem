@@ -1,8 +1,9 @@
 <?php 
 
-include 'include/config.php';
-$id = $_GET['id'];
-$query = "SELECT * FROM `reserve_section` where id = '$id'";
+include 'lib/app.php';
+$busid = $_GET['reservid'];
+$userid = $_GET['id'];
+$query = "SELECT * FROM `reserve_section` where id = '$busid' and user_id = '$userid'";
 
 $result = mysqli_query($con, $query);
 $row = mysqli_fetch_assoc($result);
@@ -31,6 +32,11 @@ $row = mysqli_fetch_assoc($result);
  			<td><strong>Date of departure: </strong><?php echo $row['date'] ?></td>
  		</tr>
  		
- 		<tr><td><a href="print" class="btn">Print</a></td></tr>
+ 		<tr><td>
+ 			<a href="pdf/pdf.php?id=<?php echo $userid."&busid= ".$busid ?>" class="btn">Print</a>
+ 			
+
+
+ 		</td></tr>
  	</tbody>
  </table>

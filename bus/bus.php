@@ -1,4 +1,5 @@
 <?php 
+
 include_once 'header.php'; ?>
 
   <div class="ticket-pick">
@@ -10,7 +11,7 @@ include_once 'header.php'; ?>
             <div class="col-lg-offset-1">
              <h3>Lowest prices guaranteed on Bus Tickets </h3>
               <div class="pick-form">
-                  <form method="post" action="searchbus.php">
+                  <form method="post" action="searchbus.php?id=<?php echo $id ?>">
                     <div class="form-group">
                       <label>From:</label>
                       <select class="form-control" name="city_from">
@@ -18,7 +19,7 @@ include_once 'header.php'; ?>
                                 <option>----Select city----</option>
                                 <?php 
                                 $query = "SELECT * FROM `route_one`";
-                                $result = mysqli_query($con, $query); 
+                                $result = mysqli_query($con, $query) or die(mysqli_error($con)); 
                                 while($obj= $result->fetch_object()) {
                                   if (!$result) {
                                     die("Error: Data not Found. . ");
@@ -36,7 +37,7 @@ include_once 'header.php'; ?>
                                 <option>----Select city----</option>
                                 <?php 
                                 $query = "SELECT * FROM `route_one`";
-                                $result = mysqli_query($con,$query); 
+                                $result = mysqli_query($con,$query) or die(mysqli_error($con)); 
                                 while($obj= $result->fetch_object()) {
                                   if (!$result) {
                                     die("Error: Data not Found. . ");
@@ -313,7 +314,9 @@ include_once 'header.php'; ?>
   </div>
 
 
-  <?php include_once 'footer.php'; ?>
+  <?php include_once 'footer.php';
+  mysqli_close($con);
+   ?>
   <script type="text/javascript">
           $(document).ready(function(){
              $('#date1').datetimepicker({

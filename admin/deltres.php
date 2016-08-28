@@ -1,7 +1,7 @@
 <?php
 
 // This is a sample code in case you wish to check the username from a mysql db table
-include('../include/config.php');
+include('../lib/database.php');
 if($_GET['id'])
 {
 	$id=$_GET['id'];

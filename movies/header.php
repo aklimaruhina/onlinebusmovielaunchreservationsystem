@@ -1,4 +1,23 @@
+ <?php 
+   $dashboard = 1;
 
+  require_once('../lib/app.php'); 
+
+  if(!user_loggedin() ){
+    header('location: ../login.php');
+  }
+
+  $id = $_GET['id'];
+  $query = "SELECT * from users  where id = ".$id;
+  $result = mysqli_query($con, $query) or die(mysqli_error($con));
+  $data = mysqli_fetch_assoc($result);
+
+  // $path = $config->base_url.'/homepage.php';
+  // $signuser = $config->base_url.'/profile.php';
+  // $launch = $config->base_url.'/launch/launch.php';
+  // $signout = $config->base_url.'/functions/logout.php';
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,33 +27,20 @@
     <title>Movie</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/stylesheet.css">
     <link rel="stylesheet" href="../bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
   </head>
   <body>
     <nav class="navbar navbar-default navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.php">Sohoj<span class="text-green">Ticket.</span></a>
+            <a class="navbar-brand" href="../homepage.php?id=<?php echo $id ?>">Sohoj<span class="text-green">Ticket.</span></a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="index.php"><i class="fa fa-bus"></i>Buses</a></li>
-          <li><a href="launch.php" target="_"><i class="fa fa-ship"></i>launch</a></li>
-          <li><a href="movies.php" target="_"><i class="fa fa-film"></i>Movies</a></li>
-          
-            <?php 
-            if(isset($_SESSION['sid'])){
-              echo "<li><a class='sign-user' href='".$signuser."'>".$_SESSION['first_name']." ".$_SESSION['last_name']. "</a></li><li><a class='signout-link' href='".$signout."'>Sign Out&nbsp;&nbsp;</a></li>";
-            }
-            else {
-              echo "<li><a class='homepage-sign-in' href='".$signin."'>Sign In&nbsp;&nbsp;</a></li> | <li><a class='homepage-sign-in' href='".$signup."'>&nbsp;&nbsp;Sign Up&nbsp;&nbsp;</a></li>"; 
-            }
-            ?>
-            <!-- <a href="login.php#wrapper">Login</a></li>
-          <li><a href="registration.php#wrapper">Register</a></li> -->
+          <li><a href="all-movie.php?id=<?php echo $id ?>"><i class="fa fa-film"></i>All Movie</a></li>
+          <li><a href="movie.php?id=<?php echo $id ?>">Book Movie</a></li>
+          <li><a href="../profile.php?id=<?php echo $id ?>"><?php echo $data['username'] ?></a></li>
+          <li><a href="../functions/logout.php">LogOut</a></li>
         </ul>
       </div>
   </nav>
-  <header>
-    
-  </header>

@@ -1,5 +1,5 @@
 <?php 
-include_once '../include/config.php';
+include_once '../lib/app.php';
 $id = $_GET['id'];
 if(isset($_POST)):
 	$movie_name = $_POST['mvname'];
@@ -9,7 +9,7 @@ if(isset($_POST)):
 	$islive = $_POST['islive'];
 	$query = "UPDATE `movies` SET `movie_name` = '$movie_name', `movie_director` = '$movie_director', 
 	`movie_decription` = '$movie_decription', `islive` = '$islive ' WHERE `movies`.`movie_id` =  ".$id;
-	$result = mysqli_query($con, $query);
+	$result = mysqli_query($con, $query) or die(mysqli_error($con));
 	if(!$result){
 	    var_dump($query);
 	}

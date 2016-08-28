@@ -1,5 +1,5 @@
 <?php 
-include_once '../include/config.php';
+include_once '../lib/database.php';
 if($_POST):
 	$bus_name = $_POST['bus_name'];
 	$bus_info = $_POST['bus_info'];

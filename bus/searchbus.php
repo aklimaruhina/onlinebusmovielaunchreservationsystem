@@ -1,7 +1,7 @@
 <?php 
 include_once 'header.php';
-include_once '../include/config.php'; 
-
+include_once '../lib/database.php'; 
+// $userid = $_GET['id'];
 $city_from = $_POST['city_from'];
 $city_to = $_POST['city_to'];
 $date1 = explode('/', $_POST['dept_date']);
@@ -46,7 +46,7 @@ if($_POST):
                                 <tbody>
                                 <?php 
                                     while($row = mysqli_fetch_assoc($result)){
-                                      $id = $row['id'];
+                                      $bid = $row['id'];
                                       $date = $row['dept_date'];
                                       // $_SESSION['id'] = $id;
                                       // $_SESSION['date'] = $row['dept_date'];
@@ -66,7 +66,7 @@ if($_POST):
                                         <td><?php echo $row['arr_date'] ?></td>
                                         <td><?php echo $row['seat'] ?></td>
                                         <td><?php echo $row['fare'] ?></td>
-                                        <td><a href="selectseat.php?id=<?php echo $id."&date=" .urlencode($date)?>">Choose your seat</a></td>
+                                        <td><a href="selectseat.php?id=<?php echo $id."&busid= ".$bid."&date=" .urlencode($date)?>">Choose your seat</a></td>
                                     </tr>
                                        
                             <?php

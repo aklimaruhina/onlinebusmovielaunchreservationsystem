@@ -1,45 +1,55 @@
-<?php
-session_start();
-
-include '../include/config.php';
-$_SESSION['sid']=session_id();
-
-$login_time=strtotime('now');
-$login_date = date('Y-m-d',$login_time);
-$user_name = $_POST['user_name'];
-$password = md5($_POST['password']);
-$email = $_POST['email'];
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
-$address = $_POST['address'];
-$mobileno = $_POST['mobileno'];
-
-$sql="INSERT INTO users (`user_name`,`password`,`email`,`first_name`,`last_name`,`address`,`mobile_number`,`sid`,`login_time`,`logout_time`)
-VALUES
-('$user_name','$password','$email','$first_name','$last_name','$address','$mobileno','$_SESSION[sid]','$login_date','')";
-$result = mysqli_query($con, $sql);
-
-if(!$result){ echo "error"; var_dump($sql);}
-else{
-
-$_SESSION['name'] = $_POST['user_name'];
-$_SESSION['first_name'] = $_POST['first_name'];
-$_SESSION['last_name'] = $_POST['last_name'];
-
-$qry = "SELECT user_id FROM users WHERE user_name='".$_POST['user_name']."'";
-
-$qry_q = mysqli_query($con, $qry);
-$qry_q_row = mysqli_fetch_object($qry_q);
-
-$_SESSION['user_id'] = $qry_q_row->user_id;
-
-
-if(isset($_SESSION['sid'])){ 
-	$path = $config->base_url."/homepage.php";
-	header("Location: $path");
-} 
+<?php 
+require_once('../lib/app.php');
+$first_name = '';
+$last_name = '';
+$email = '';
+$password = '';
+$address = '';
+$mobileno = '';
+$user_name = '';
+$query = "SELECT count(*) as total_user FROM users";
+$result = mysqli_query($con, $query) or die (mysqli_error($con));
+$users = array();
+$row = mysqli_fetch_assoc($result);
+$total_user = intval($row['total_user']);
+if($total_user === 0){
+	$is_admin = 1;
 }
-mysqli_close($con);
+else{ 
+  $is_admin=0;
+}
+if(isset($_POST['first_name']))
+	$first_name = $_POST['first_name'];
+if(isset($_POST['last_name']))
+	$last_name = $_POST['last_name'];
+if(isset($_POST['email']))
+	$email = $_POST['email'];
+if(isset($_POST['password']))
+	$password = $_POST['password'];
+if(isset($_POST['address']))
+	$address = $_POST['address'];
+if(isset($_POST['mobileno']))
+	$mobileno = $_POST['mobileno'];
+if(isset($_POST['user_name']))
+	$user_name = $_POST['user_name'];
+$query1  =  "INSERT INTO users(id,username,email, password, is_admin, created) 
+			values(NULL,'".$user_name."','".$email."','".$password."','".$is_admin."' , NOW())";
+$success = mysqli_query($con,$query1) or die(mysqli_error($con));
+$query_id = "SELECT * FROM users WHERE email ='".$email."' AND username = '".$user_name."' AND password = '".$password."'";
+$result = mysqli_query($con, $query_id) or die(mysqli_error($con));
+$user = array();
+$user = mysqli_fetch_assoc($result);
+$reg_user= $user['id'];
+$query2 = "INSERT INTO profiles(id,user_id,first_name, last_name, mobile_number,email, address, status,created) 
+ 			values(NULL,'".$reg_user."','".$first_name."','".$last_name."','".$mobileno."', '".$email."','".$address."','1',NOW())";
+$success = mysqli_query($con,$query2) or die(mysqli_error($con));
+if($success){
+ 	$_SESSION['msg_success'] = "Please re-enter your email and password.";
+ }else{
+ 	$_SESSION['msg_error'] = "Failed to add data";
+ }
+ header('location: ../login.php');
 
-?> 
 
+
+ ?>

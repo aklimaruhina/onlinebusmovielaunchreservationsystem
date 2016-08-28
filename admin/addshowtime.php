@@ -1,5 +1,5 @@
 <?php 
-include_once '../include/config.php';
+include_once '../lib/database.php';
 if(isset($_POST)):
 
 $screens = $_POST['screens'];

@@ -1,8 +1,6 @@
 <?php include_once 'header.php'; 
-include_once '../include/config.php';
-if(isset($_SESSION['sid'])) {
-    $user_id = $_SESSION['user_id'];
-}
+include_once '../lib/database.php';
+
 function createRandomPassword() {
 	$chars = "abcdefghijkmnopqrstuvwxyz023456789";
 	srand((double)microtime()*1000000);
@@ -19,7 +17,7 @@ function createRandomPassword() {
 $confirmation = createRandomPassword();
 
 $date =urldecode( $_GET['date']);
-$busno = $_GET['id'];
+$busno = $_GET['busno'];
 
   	$selected_seat = $_POST['selected_seat']; // output 3,4,5
 	$array=explode(',',$selected_seat); 
@@ -37,10 +35,10 @@ $busno = $_GET['id'];
 		$reserve_seat_id = $obj->reserve_seat_id;
 	}
 	 $payable = $price*$total_reserve;
-	
+	 
 	$query2 = "INSERT INTO `reserve_section` (`id`, `user_id`, `firstname`, `lastname`, `contact`, `address`, `seat`, `setnum`, `transaction_code`, `status`, `payable`, `reserve_seat_id`, `date`) 
-	VALUES (NULL, '$user_id', '$firstname', '$lastname', '$contact', '$address', '$total_reserve', '$selected_seat', '$confirmation', '', '$payable', '$reserve_seat_id', '$date')";
-	$result2 = mysqli_query($con, $query2);
+	VALUES (NULL, '$id', '$firstname', '$lastname', '$contact', '$address', '$total_reserve', '$selected_seat', '$confirmation', '', '$payable', '$reserve_seat_id', '$date')";
+	$result2 = mysqli_query($con, $query2) or die(mysqli_error($con));
 	if(!$result2){
 		var_dump($query2);
 	}

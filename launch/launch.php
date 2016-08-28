@@ -9,7 +9,7 @@ include_once 'header.php'; ?>
           <div class="row">
             <div class="col-lg-offset-1">
               <div class="pick-form">
-                  <form method="post" action="searchlaunch.php">
+                  <form method="post" action="searchlaunch.php?id=<?php echo $id ?>">
                     <div class="form-group">
                       
                       <label>From:</label>

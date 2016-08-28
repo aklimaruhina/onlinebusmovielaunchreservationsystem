@@ -1,15 +1,24 @@
 <?php 
-  session_start(); 
-  include 'include/config.php';
-  if(!isset($_SESSION['sid'])){   
-    header("Location: index.php");
-  }
-  $path = $config->base_url.'/homepage.php';
-  $signout = $config->base_url.'/functions/logout.php';
-  $signuser = $config->base_url.'/profile.php';
-  $bus = $config->base_url.'/bus/bus.php';
-  $launch = $config->base_url.'/launch/launch.php';
-  $movie = $config->base_url.'/movies/all-movie.php';
+  $dashboard = 1;
+
+require_once('lib/app.php'); 
+// include_once('links.php');
+if(!user_loggedin() ){
+  header('location: login.php');
+}
+
+$id = $_GET['id'];
+$query = "SELECT * FROM `users` where `id`=".$id; 
+$result = mysqli_query($con, $query) or die(mysqli_error($con));
+$data = mysqli_fetch_assoc($result);
+
+
+  // $path = $config->base_url.'/homepage.php';
+  // $signout = $config->base_url.'/functions/logout.php';
+  // $signuser = $config->base_url.'';
+  // $bus = $config->base_url.'';
+  // $launch = $config->base_url.'';
+  // $movie = $config->base_url.'';
 ?>
 <!DOCTYPE html>
 <html>
@@ -74,7 +83,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="text-center animated wow fadeInLeftBig" data-wow-duration="1s" data-wow-delay="650ms"><?php echo "Welcome ".$_SESSION['first_name']  ?></h3>
+                        <h3 class="text-center animated wow fadeInLeftBig" data-wow-duration="1s" data-wow-delay="650ms"><?php echo "Welcome ".$data['username']  ?></h3>
                         <h2 class="text-center animated wow fadeInRightBig" data-wow-duration="1s" data-wow-delay="650ms">Select your desired option</h2>
                     </div>
                 </div>
@@ -86,9 +95,9 @@
                 <div class="row ">
                     <div class="col-lg-12">
                         <div class="select_section">
-                            <a href="<?php echo $bus?> " class="btn animated wow fadeInUpBig"  data-wow-duration="1000ms" data-wow-delay="650ms"><b>Bus</b></a>
-                            <a href="<?php echo $launch ?> " class="btn animated wow fadeInUpBig" data-wow-duration="1000ms" data-wow-delay="650ms"><b>Launch</b></a>
-                            <a href="<?php echo $movie ?> " class="btn animated wow fadeInUpBig" data-wow-duration="1000ms" data-wow-delay="650ms"><b>Movie</b></a>
+                            <a href="bus/bus.php?id=<?php echo $data['id'] ?>" class="btn animated wow fadeInUpBig"  data-wow-duration="1000ms" data-wow-delay="650ms"><b>Bus</b></a>
+                            <a href="launch/launch.php?id=<?php echo $data['id'] ?> " class="btn animated wow fadeInUpBig" data-wow-duration="1000ms" data-wow-delay="650ms"><b>Launch</b></a>
+                            <a href="movies/all-movie.php?id=<?php echo $data['id'] ?> " class="btn animated wow fadeInUpBig" data-wow-duration="1000ms" data-wow-delay="650ms"><b>Movie</b></a>
                     </div>
                     </div>
                 </div>

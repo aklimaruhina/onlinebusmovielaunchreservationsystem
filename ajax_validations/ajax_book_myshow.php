@@ -1,5 +1,4 @@
 <?php
-session_start();
 // date_default_timezone_set('Asia/Calcutta');
 //print_r($_SESSION);
 //echo"-------";
@@ -107,7 +106,10 @@ if(count($_REQUEST)==10){
  * Function to call on OnChange of Cities.
  */
 function onChangeOfCity($c_id){
-	include '../include/config.php';
+	include '../lib/app.php';
+	
+
+	// var_dump($user_id);
 	$cities_qry = "SELECT city_id, city FROM cities";
 
 	$cities = mysqli_query($con,$cities_qry);
@@ -158,7 +160,7 @@ function onChangeOfCity($c_id){
  * Function to call on OnChange of Theatres.
  */
 function onChangeOfTheatre($t_id, $t_c_id) {
-	include '../include/config.php';
+	include '../lib/app.php';
 	$cities_qry = "SELECT city_id, city FROM cities";
 	$cities = mysqli_query($con, $cities_qry);
 	$theatre_qry = "SELECT theatre_id, theatre_name FROM theatres WHERE city_id=$t_c_id";
@@ -217,7 +219,7 @@ function onChangeOfTheatre($t_id, $t_c_id) {
  * Function to call on OnChange of Movies.
  */
 function onChangeOfMovies($m_id, $m_t_id, $m_c_id) {
-	include '../include/config.php';
+	include '../lib/app.php';
 	$cities_qry = "SELECT city_id, city FROM cities";
 	$cities = mysqli_query($con, $cities_qry);
 	$theatre_qry = "SELECT theatre_id, theatre_name FROM theatres";
@@ -314,7 +316,7 @@ function onChangeOfMovies($m_id, $m_t_id, $m_c_id) {
  * Function to call on OnChange of Dates.
  */
 function onChangeOfDates($d_id, $d_t_id, $d_m_id, $d_c_id) {
-	include '../include/config.php';
+	include '../lib/app.php';
 	$cities_qry = "SELECT city_id, city FROM cities";
 	$cities = mysqli_query($con, $cities_qry);
 	$theatre_qry = "SELECT theatre_id, theatre_name FROM theatres";
@@ -455,8 +457,7 @@ function onChangeOfDates($d_id, $d_t_id, $d_m_id, $d_c_id) {
  * Function to call on OnChange of Ticket Types.
  */
 function onChangeOfTicketTypes($t_t_id, $t_t_s_t_id, $t_t_t, $t_t_m, $t_t_d_id) {
-	include '../include/config.php';
-	
+	include '../lib/app.php';
 	$result_data ="
              	<div class='form-group'>
 					      <label for='showtime' class='col-sm-4 control-label'>Select Show timing</label>
@@ -550,11 +551,13 @@ function onChangeOfTicketTypes($t_t_id, $t_t_s_t_id, $t_t_t, $t_t_m, $t_t_d_id) 
 				/**
 				 * Check the user_id with $_SESSION['user_id'];
 				 */
-				if(isset($_SESSION['sid'])) {
-					if($total_ticket_avl_row->user_id==$_SESSION['user_id']){
+				// if(isset($_SESSION['id'])) {
+					$user_id = $_SESSION['user']['id'];
+					if($total_ticket_avl_row->user_id==$user_id){
 						$user_seats[] = $total_ticket_avl_row->number_of_seats;
 					}
-				}
+					
+				// }
 			}
 			////////////
 		if(!empty($screen_capactiy)){
@@ -631,7 +634,7 @@ $result_data .= "<div class='form-group text-center' id='available-seats-div'>
  * Function to call on OnChange of No Of Seats.
  */
 function onChangeOfNoOfSeats($s_id, $t_t_id, $m_id, $t_id, $c_id, $d_id, $s_t_id) {
-	include '../include/config.php';
+	include '../lib/app.php';
 	
 	$ticket_type_id = "SELECT ticket_price FROM ticket_rate WHERE ticket_rate_id = ".$t_t_id;
 	//var_dump($ticket_type_id);
@@ -767,7 +770,7 @@ function onChangeOfNoOfSeatsEmpty() {
  * Function to call on OnChange of Show Timings.
  */
 function onChangeOfShowTiming() {
-	include '../include/config.php';
+	include '../lib/app.php';
 
 	$result_data = "
              	<div class='form-group'>
@@ -819,7 +822,7 @@ function onChangeOfShowTiming() {
  * Function to call on OnChange of Ticket Type Empty.
  */
 function onChangeOfTicketTypesEmpty(){
-	include '../include/config.php';
+	include '../lib/app.php';
 	$result_data = "
              	<div class='form-group'>
 					      <label for='showtime' class='col-sm-4 control-label'>Select Show timing</label>
@@ -877,7 +880,7 @@ function onChangeOfTicketTypesEmpty(){
  * Function to call on OnClick of Book Ticket.
  */
 function onClickOfTicketSummary($b_c_id, $b_t_id, $b_m_id, $b_d_id, $b_s_t_id, $b_t_t_id, $b_n_o_s, $b_t_a, $s_c_a){
-	include '../include/config.php';
+	include '../lib/app.php';
 	
 	$qry = "SELECT ticket_price FROM ticket_rate WHERE ticket_rate_id=".$b_t_t_id;
 	$ticket_fare = mysqli_query($con, $qry);
@@ -976,10 +979,8 @@ function onClickOfTicketSummary($b_c_id, $b_t_id, $b_m_id, $b_d_id, $b_s_t_id, $
 
 
 function onClickOfTicketConfirm($city, $theatre, $movie, $booked_date, $show_timing, $ticket_type, $fare, $no_of_seats_booked, $seat_numbers, $total_amount){
-	include '../include/config.php';
-	if(isset($_SESSION['sid'])) {
-		$user_id = $_SESSION['user_id'];
-	}
+	include '../lib/app.php';
+	$user_id = $_SESSION['user']['id'];
 	$exp = explode('-',$booked_date);
 	$dt = date("Y-m-d", $exp[1]);
 	
@@ -989,10 +990,10 @@ function onClickOfTicketConfirm($city, $theatre, $movie, $booked_date, $show_tim
 	$qry = "INSERT INTO booking_ticket_for_theatre (user_id, theatre_show_time_id, date_of_booking, show_time_id, ticket_rate_id, number_of_seats, seat_numbers,theatre_id)
 	VALUES ($user_id,$exp[0],'$dt',$show_timing,$ticket_type,$no_of_seats_booked,'$seat_numbers', '$theatre')";
 	
-	mysqli_query($con, $qry);
+	mysqli_query($con, $qry) or die(mysqli_error($con));
 	
 	$result_data = "<div id='thanks-for-booking'>Thanks for Booking the Tickets!.
-	To continue booking clik on this link &nbsp;&nbsp;<a href='movie.php' >Book more tickets</a></div>";
+	To continue booking clik on this link &nbsp;&nbsp;<a href='movie.php?id=$user_id' >Book more tickets</a></div>";
 
 	print $result_data;
 	mysqli_close($con);

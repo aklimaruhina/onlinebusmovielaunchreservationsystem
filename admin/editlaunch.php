@@ -1,12 +1,11 @@
 <?php 
 // include_once '../include/config.php';
-include_once 'session.php';
+include_once 'header.php';
 
 $id = $_GET['id'];
 $query = "SELECT * FROM `launch_info` where launch_id = ".$id;
 $result = mysqli_query($con, $query);
 $row = mysqli_fetch_assoc($result);
-include_once 'header.php';
  ?>
  <div class="ticket-pick">
     <div class="container" style="border-bottom:2px solid #1abc9c; padding-bottom:30px">
@@ -126,7 +125,7 @@ include_once 'header.php';
                             </div>
                           </div>
                       		<div class="col-lg-5 col-md-offset-5 pull-right" style="padding-top: 15px;">
-                 				<button type="submit" style="background:#1abc9c" class="form-control"><span class="glyphicon glyphicon-plus"></span>Added Buses</button>
+                 				<button type="submit" style="background:#1abc9c" class="form-control"><span class="glyphicon glyphicon-plus"></span>Edit Launch</button>
                 			</div>
                       	</form>
                     </div>

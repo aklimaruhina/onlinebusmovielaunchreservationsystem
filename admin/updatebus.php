@@ -1,5 +1,5 @@
 <?php 
-include_once '../include/config.php';
+include_once '../lib/app.php';
 $id = $_GET['id'];
 if($_POST):
 	$bus_name = $_POST['bus_name'];
@@ -18,7 +18,7 @@ if($_POST):
 	$new_date2 = $date2[2].'-'.$date2[1].'-'.$date2[0];
 	$query="UPDATE `bus_reserve` SET `bus_name` = '$bus_name', `bus_info` = '$bus_info', `city_from` = '$city_from',
 	 `city_to` = '$city_to', `seat` = '$seat', `fare` = '$fare', `dtime` = '$dt', `arrtime` = '$at', `dept_date` = '$new_date1', `arr_date` = '$new_date2' WHERE `bus_reserve`.`id` = ".$id;
-	$result = mysqli_query($con, $query);
+	$result = mysqli_query($con, $query) or die(mysqli_error($con));
 	if(!$result){
 	    var_dump($query);
 	}

@@ -1,5 +1,5 @@
 <?php 
-include_once 'session.php';
+
 include_once 'header.php'; 
 // include_once '../include/config.php';
 $query = "SELECT * FROM `bus_reserve` ";
@@ -29,6 +29,7 @@ $row_cnt = $result->num_rows;
 		          		<?php
 		          		if($row_cnt > 0){
 		          			while ($row_cnt = $result->fetch_assoc()) { 
+		          				$busid = $row_cnt['id'];
 		          				$dept_time = $row_cnt['dtime'];
 		          				$newDateTime = date('h:i A', strtotime($dept_time));
 		          				$arr_time = $row_cnt['arrtime'];
@@ -37,7 +38,7 @@ $row_cnt = $result->num_rows;
 		          				?>
 		          			<tr>
 					            <td>
-					            	<?php echo $row_cnt['id'] ?>
+					            	<?php echo $busid ?>
 					            </td>
 					            <td>
 					            	<?php echo $row_cnt['bus_name']." <br/>".$row_cnt['bus_info'] ?>
@@ -58,7 +59,7 @@ $row_cnt = $result->num_rows;
 					            	<?php echo $row_cnt['dept_date']. "/". $row_cnt['arr_date'] ?>
 					            </td>
 					            <td>
-					            	 <a href="editbus.php?id=<?php echo $row_cnt['id'] ?>" class="btn btn-primary">Edit Bus</a>
+					            	 <a href="editbus.php?id=<?php echo $busid?>" class="btn btn-primary">Edit Bus</a>
 					            	 <a href="deletebus.php?id=<?php echo $row_cnt['id'] ?>" class="btn btn-danger">Delete Bus</a>
 					            </td>
 		            		</tr>
@@ -66,6 +67,7 @@ $row_cnt = $result->num_rows;
 		          			<?php
 		          				# code...
 		          			}
+		          			$result->close();
 		          		} 
 		          		 ?>
 		          		
@@ -76,4 +78,7 @@ $row_cnt = $result->num_rows;
 			</div>
 		</div>
 	</div>
-<?php include_once 'footer.php'; ?>
+<?php include_once 'footer.php'; 
+/* close connection */
+mysqli_close($con);
+?>

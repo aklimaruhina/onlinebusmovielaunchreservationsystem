@@ -1,6 +1,5 @@
 <?php 
 include_once 'header.php';
-include_once '../include/config.php'; 
 
 $city_from = $_POST['city_from'];
 $city_to = $_POST['city_to'];
@@ -45,7 +44,7 @@ if($_POST):
                                 <tbody>
                                 <?php 
                                     while($row = mysqli_fetch_assoc($result)){
-                                      $id = $row['launch_id'];
+                                      $lnid = $row['launch_id'];
                                       $date = $row['dept_date'];
                                       // $_SESSION['id'] = $id;
                                       // $_SESSION['date'] = $row['dept_date'];
@@ -64,7 +63,7 @@ if($_POST):
                                         <td><?php echo $row['dept_date'] ?></td>
                                         <td><?php echo $row['arr_date'] ?></td>
                                         <td><?php echo $row['fare_range'] ?></td>
-                                        <td><a href="selectlaunch.php?id=<?php echo $id."&date=" .urlencode($date)?>">Choose your seat</a></td>
+                                        <td><a href="selectlaunch.php?id=<?php echo $id."&lnid= ".$lnid."&date=" .urlencode($date)?>">Choose your seat</a></td>
                                     </tr>
                                        
                             <?php

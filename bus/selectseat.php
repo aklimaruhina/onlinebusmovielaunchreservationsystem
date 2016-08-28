@@ -1,10 +1,11 @@
 <?php 
 include_once 'header.php'; 
-include_once '../include/config.php';
+include_once '../lib/database.php';
 
 //var_dump($_GET);die;
 $date =urldecode( $_GET['date']);
-$busnum = $_GET['id'];
+
+$busnum = $_GET['busid'];
 
 $query = "SELECT * FROM `bus_reserve` where id = '$busnum' AND dept_date = '$date'";
 
@@ -16,9 +17,10 @@ $query = "SELECT * FROM `bus_reserve` where id = '$busnum' AND dept_date = '$dat
           		<div class="col-lg-6">
           			<div class="row">
             			<div class="col-lg-offset-1">
-            				<form action="savequantity.php?id=<?php echo $busnum.'&date='.$date;?>" method="post"><!-- savequantity.php?id=<?php #echo $busnum.'&date='.$date;?>? -->
+            				<form action="savequantity.php?id=<?php echo $id.'&busno= '.$busnum.'&date='.$date;?>" method="post"><!-- savequantity.php?id=<?php #echo $busnum.'&date='.$date;?>? -->
                                 <div class="form-group">
-                                    <input type="hidden" name="id" value="<?php echo $busnum; ?>" >
+                                  <input type="hidden" name="userid" value="<?php echo $id ?>">
+                                    <input type="hidden" name="busid" value="<?php echo $busnum; ?>" >
                                     <input type="hidden" name="date" value="<?php echo $date ?>">
                                 </div>
                                 <input type="hidden" id="selected_seat" name="selected_seat" value="" />

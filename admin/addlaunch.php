@@ -1,5 +1,5 @@
 <?php 
-include_once '../include/config.php';
+include_once '../lib/database.php';
 if($_POST):
 	$launch_name = $_POST['launch_name'];
 	$launch_info = $_POST['launch_info'];
@@ -18,7 +18,7 @@ if($_POST):
 	$fare_range = $_POST['fare_range'];
 
 	$query = "INSERT INTO `launch_info` (`launch_id`, `launch_name`, `launch_info`, `city_from`, `city_to`, `seat`, `dtime`, `arrtime`, `dept_date`, `arr_date`,`reserve_id`,`fare_range`) VALUES (NULL, '$launch_name', '$launch_info', '$city_from', '$city_to', '$seat', '$dt', '$at', '$new_date1', '$new_date2','$reserve_id','$fare_range')";
-	$result = mysqli_query($con, $query);
+	$result = mysqli_query($con, $query) or die(mysqli_error($con));
 	
 	if(!$result){
 		echo "You have error in your database........";

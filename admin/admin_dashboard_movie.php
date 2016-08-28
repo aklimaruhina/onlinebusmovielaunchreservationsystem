@@ -1,5 +1,4 @@
 <?php 
-include_once 'session.php';
 include_once 'header.php'; 
 // include_once '../include/config.php';
 $query = "SELECT * FROM `movies` ";
@@ -23,13 +22,12 @@ $row_cnt = $result->num_rows;
 
           	<div class="col-lg-3">
 	            <div class="well text-center">
-	              <img src="../<?php echo $row_cnt['movie_poster'];?>" width="170" height="240">
+	              <img src="<?php echo $row_cnt['movie_poster'];?>" width="170" height="240">
 	              <div class="well-footer">
 	                <a href=""><?php echo $row_cnt['movie_name'] ?></a>
 	                  <p>Description:<?php echo $row_cnt['movie_decription'] ?></p>
                     <p>Language: <?php echo $row_cnt['movie_language'] ?></p>
-	                  <a href="" class="btn btn-danger">Delete Movie</a>
-                    <a href="" class="btn btn-info">Edit Movie</a>
+	                  
 	              </div>
 	            </div>
             </div>
@@ -46,4 +44,8 @@ $row_cnt = $result->num_rows;
       </div>
     </div>
   </div>
-<?php include_once 'footer.php'; ?>
+<?php 
+include_once 'footer.php'; 
+mysqli_close($con);
+
+?>

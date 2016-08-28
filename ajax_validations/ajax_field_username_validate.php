@@ -1,13 +1,14 @@
 <?php
-include '../include/config.php';
+include '../lib/database.php';
 
 /**
  * Validating User Name
  */
 if(!empty($_REQUEST['username'])){
 	$username = $_REQUEST['username'];
-	$query_username = "SELECT user_id FROM users WHERE user_name = '$username'";
-	$chk_username = mysqli_query($con, $query_username);
+	$query_username = "SELECT id FROM users WHERE username = '$username'";
+	$chk_username = mysqli_query($con, $query_username) or die(mysqli_error($con));
+//	$results = mysqli_query($link, $query) ;
 	//$rc = mysql_affected_rows();
 	if(mysqli_num_rows($chk_username)) {
 		print "<div class='field-error col-sm-4' id='field-error-username'>User Name is not available, Plese choose another User Name.</div>";

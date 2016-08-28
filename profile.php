@@ -1,15 +1,21 @@
 <?php 
-	session_start(); 
-	include 'include/config.php';
-	if(!isset($_SESSION['sid'])){   
-    header("Location: index.php");
-  }
-	$path = $config->base_url.'/homepage.php';
-	$signout = $config->base_url.'/functions/logout.php';
-	$signuser = $config->base_url.'/profile.php';
-	$bus = $config->base_url.'/bus/bus.php';
-	$launch = $config->base_url.'/launch/launch.php';
-	$movie = $config->base_url.'/movies/movie.php';
+	 $profile = 1;
+
+require_once('lib/app.php'); 
+// include_once('links.php');
+if(!user_loggedin() ){
+  header('location: ../login.php');
+}
+$id = $_GET['id'];
+$query = "SELECT * FROM `users`,`profiles` WHERE `profiles`.`user_id`=".$id." AND `users`.`id`=".$id; 
+$result = mysqli_query($con, $query) or die(mysqli_error($con));
+$data = mysqli_fetch_assoc($result);
+	// $path = $config->base_url.'/homepage.php';
+	// $signout = $config->base_url.'/functions/logout.php';
+	// $signuser = $config->base_url.'/profile.php';
+	// $bus = $config->base_url.'/bus/bus.php';
+	// $launch = $config->base_url.'/launch/launch.php';
+	// $movie = $config->base_url.'/movies/movie.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,11 +42,11 @@
       			<a class="navbar-brand" href="<?php echo $path ?>">Sohoj<span class="text-green">Ticket.</span></a>
     		</div>
     		<ul class="nav navbar-nav navbar-right">
-    			<li class="active"><a href="<?php echo $bus ?>"><i class="fa fa-bus"></i>Buses</a></li>
-    			<li><a href="<?php echo $launch; ?>" target="_"><i class="fa fa-ship"></i>launch</a></li>
-    			<li><a href="<?php echo $movie ?>"><i class="fa fa-film"></i>Movies</a></li>
-          <li><a href="<?php echo $signuser ?> "><?php echo $_SESSION['first_name']." ".$_SESSION['last_name'] ?></a></li>
-          <li><a href="<?php echo $signout ?>">SignOut</a></li>
+    			<li class="active"><a href="bus/bus.php?id=<?php echo $id ?>"><i class="fa fa-bus"></i>Buses</a></li>
+    			<li><a href="launch/launch.php?id=<?php echo $id ?>" target="_"><i class="fa fa-ship"></i>launch</a></li>
+    			<li><a href="movies/all-movie.php?id=<?php echo $id ?>"><i class="fa fa-film"></i>Movies</a></li>
+          <li><a href="profile.php?id=<?php echo $id ?>"><?php echo $data['first_name']." ".$data['last_name'] ?></a></li>
+          <li><a href="functions/logout.php">SignOut</a></li>
           
     		</ul>
   		</div>
@@ -59,33 +65,28 @@
 
           <div class="tab-content">
             <div class="tab-pane active" id="profile">
-              <?php include 'include/config.php'; 
-              $query = "SELECT * FROM users where user_id=".$_SESSION['user_id'];
-              $result=mysqli_query($con, $query);
-              $row=mysqli_fetch_array($result);
-              ?>
 
               <table class="table table-striped">
                 <tbody>
                   <tr>
                     <td>User Name</td>
-                    <td><?php echo $row['user_name'] ?></td>
+                    <td><?php echo $data['username'] ?></td>
                   </tr>
                   <tr>
                     <td>Full Name</td>
-                    <td><?php echo $row ['first_name']." ".$row['last_name'] ?></td>
+                    <td><?php echo $data ['first_name']." ".$data['last_name'] ?></td>
                   </tr>
                   <tr>
                     <td>Email</td>
-                    <td><?php echo $row['email'] ?></td>
+                    <td><?php echo $data['email'] ?></td>
                   </tr>
                   <tr>
                     <td>Address</td>
-                    <td><?php echo $row['address'] ?></td>
+                    <td><?php echo $data['address'] ?></td>
                   </tr>
                   <tr>
                     <td>Mobile Number</td>
-                    <td><?php echo "+880".$row['mobile_number'] ?></td>
+                    <td><?php echo "+880".$data['mobile_number'] ?></td>
                   </tr>
    
                 </tbody>
@@ -94,48 +95,30 @@
             </div>
             <div class="tab-pane" id="edit-profile">
               <?php 
-              $error_class = '';
-              $error ='';
-              if(!empty($_POST)) {
-                $update_profile = "UPDATE users SET first_name = '".$_POST['first_name']."',
-                last_name = '".$_POST['last_name']."',
-                address = '".$_POST['address']."',
-                mobile_number = '".$_POST['mobile_number']."' WHERE user_id=".$_SESSION['user_id'];
 
-                if (!mysqli_query($con, $update_profile)) { die('Error: ' . mysqli_error());}
-                else {
-                  $error_class = 'error-success'; 
-                  // $error ='Your Profile has been updated.';
-                  header('location: profile.php#profile');
-                  $_SESSION['first_name'] = $_POST['first_name'];
-                  $_SESSION['last_name'] = $_POST['last_name'];
-                }
-              }
-              
-              $sql1 = "SELECT * FROM users where user_id=".$_SESSION['user_id'];
+              $sql1 = "SELECT * FROM `users`,`profiles` WHERE `profiles`.`user_id`=".$id." AND `users`.`id`=".$id; 
               $sql_qry1=mysqli_query($con, $sql1);
               $row=mysqli_fetch_array($sql_qry1);
               
-              $username=$row['user_name'];
+              $username=$row['username'];
               $email=$row['email'];
               $firstname=$row['first_name'];
               $lastname=$row['last_name'];
               $address=$row['address'];
               $mob=$row['mobile_number'];
               
-              $_SESSION['first_name'] = $row['first_name'];
-              $_SESSION['last_name'] = $row['last_name'];
+              
               
               ?>
 
-              <form action="profile.php#edit-profile" class="form-horizontal" method='post'>
-                <div class="form-group">
+              <form action="updateprofile.php?id=<?php echo $id ?>" class="form-horizontal" method='post'>
+                <!-- <div class="form-group">
                   <div class='<?php echo $error_class; ?>'><?php echo $error; ?></div>
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label class="col-sm-4 control-label">User Name <span class="<?php echo $error_class; ?>"></span></label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" name="user_name" id="user_name" value="<?php echo $row['user_name'] ?>" disabled='disabled'>
+                    <input type="text" class="form-control" name="user_name" id="user_name" value="<?php echo $row['username'] ?>" disabled='disabled'>
                   </div>
                 </div>
                 <div class="form-group">
@@ -172,7 +155,7 @@
               </form>  
             </div>
             <div class="tab-pane" id="bus-history">
-              <?php $bus_query = "SELECT * FROM `reserve_section` where user_id = ".$_SESSION['user_id']; 
+              <?php $bus_query = "SELECT * FROM `reserve_section` where user_id = ".$id; 
               $bus_query_1 = mysqli_query($con, $bus_query);
               $sno = 0;
               $even_odd = '';
@@ -196,6 +179,8 @@
                 <tbody>
                   <?php 
                   while($bus_query_row = mysqli_fetch_object($bus_query_1)){
+                    $busid= $bus_query_row->id;
+                    $userid = $bus_query_row->user_id;
                   $sno++;
                   if($sno%2==0){$even_odd='even';}else{$even_odd='odd';} 
                    ?>
@@ -208,7 +193,7 @@
                      <td><?php echo $bus_query_row->transaction_code ?></td>
                      <td><?php echo $bus_query_row->payable; ?></td>
                      <td><?php echo $bus_query_row->date; ?></td>
-                     <td><a href="printbus.php?id=<?php echo $bus_query_row->id ?>" class="btn btn-info">Print Ticket</a></td>
+                     <td><a href="pdf/pdf.php?id=<?php echo $userid."&busid= ".$busid ?>" class="btn btn-info">Print Ticket</a></td>
                      <td></td>
                    </tr>
                 </tbody>
@@ -220,7 +205,7 @@
               } ?>
               </div>
             <div class="tab-pane" id="launch-history">
-              <?php $launch_query = "SELECT * FROM `launch_reserve` where user_id = ".$_SESSION['user_id']; 
+              <?php $launch_query = "SELECT * FROM `launch_reserve` where user_id = ".$id; 
               $launch_query_1 = mysqli_query($con, $launch_query);
               $sno = 0;
               $even_odd = '';
@@ -243,6 +228,8 @@
                 <tbody>
                   <?php 
                   while($launch_query_row = mysqli_fetch_object($launch_query_1)){
+                    $lnid= $launch_query_row->r_id;
+                    $userid = $launch_query_row->user_id;
                   $sno++;
                   if($sno%2==0){$even_odd='even';}else{$even_odd='odd';} 
                    ?>
@@ -253,7 +240,7 @@
                      <td><?php echo $launch_query_row->payable; ?></td>
                      <td><?php echo $launch_query_row->dept_date; ?></td>
                      <td><?php echo $launch_query_row->book_type; ?></td>
-                     <td><a href="printlaunch.php?id=<?php echo $launch_query_row->r_id ?>" class="btn btn-info">Print Ticket</a></td>
+                     <td><a href="pdf/printlaunch.php?id=<?php echo $userid."&lnid= ".$lnid ?>" class="btn btn-info">Print Ticket</a></td>
                      <td></td>
                    </tr>
                 </tbody>
@@ -261,7 +248,7 @@
               </table>
               <?php }
               else{
-                echo "YOu have not booked any. Please go to this link to book new Launch. <a href='".$launch."'>Book Launch</a>";
+                echo "YOu have not booked any. Please go to this link to book new Launch. <a href=''>Book Launch</a>";
               } ?>
               </div>
             <div class="tab-pane" id="movie-history">
@@ -274,7 +261,7 @@
               JOIN theatres th ON th.theatre_id = b_t_f_t.theatre_id
               JOIN show_timing s_t ON s_t.show_time_id = b_t_f_t.show_time_id
               JOIN ticket_rate t_r ON t_r.ticket_rate_id = b_t_f_t.ticket_rate_id
-              WHERE user_id =".$_SESSION['user_id']."
+              WHERE user_id =".$id."
               ORDER BY b_t_f_t.date_of_booking DESC";
               
               
@@ -303,12 +290,13 @@
                 <tbody>
                   <?php 
                   while($b_hs_qry_row = mysqli_fetch_object($b_hs_qry)){
+                    $bid = $b_hs_qry_row->booking_id;
               $sno++;
               if($sno%2==0){$even_odd='even';}else{$even_odd='odd';} ?>
               <!-- //$total_amount_bh = $b_hs_qry_row->number_of_seats*$b_hs_qry_row->ticket_price; -->
                 <tr class='<?php echo $even_odd ?>'>
                   <td><?php echo $sno ?></td>
-                  <td><a class='movie-redirect' target='_blank' href='/project-1/movies/movie-details.php?id=<?php echo $b_hs_qry_row->movie_id?>'><?php echo $b_hs_qry_row->movie_name ?></a>
+                  <td><a class='movie-redirect' target='_blank' href='movies/movie-details.php?id=<?php echo $b_hs_qry_row->movie_id?>'><?php echo $b_hs_qry_row->movie_name ?></a>
                   </td>
                   <td><?php echo $b_hs_qry_row->theatre_name ?></td>
                   <td><?php echo  $b_hs_qry_row->date_of_booking?></td>
@@ -318,14 +306,16 @@
                   <td><?php echo $b_hs_qry_row->seat_numbers ?></td>
                   <td>
                     <?php echo $b_hs_qry_row->number_of_seats*$b_hs_qry_row->ticket_price?> Tk/-</td>
-                  <td><a href="printmovie.php?id=<?php echo $b_hs_qry_row->booking_id?>" class='btn btn-primary'>Print</a></td>
+                  <td>
+                    <a href="pdf/printmovie.php?id=<?php echo $userid."&bid= ".$bid ?>" class='btn btn-primary'>Print</a>
+                  </td>
                   </tr>;
 
                   <?php
               }
               } 
               else {
-              echo "<p class='no-booking-history'>You haven't booked a ticket.</p> <p class='no-booking-history'>To Book the ticket click here <a href='$movie'>Book</a></p>";
+              echo "<p class='no-booking-history'>You haven't booked a ticket.</p> <p class='no-booking-history'>To Book the ticket click here <a href=''>Book</a></p>";
             }
                    ?>
                 </tbody>

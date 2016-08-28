@@ -1,12 +1,20 @@
 <?php 
+
+  include('lib/app.php');
+  $config = $_SESSION['config'];
+  if(isset($_SESSION['user_loggedin']) && $_SESSION['user_loggedin'] == true){
+    header('location: user_dashboard.php');
+  }
+  
+
   include_once "header.php";
 ?> 
 <div class="main-container">
-	<div class="container">
+  <div class="container">
       <div class="row card">
         <div class="col-md-10">
           <form class="form-horizontal contact-form" method="post" action="functions/registration_submit.php">
-          	<legend class="text-center">Sign Up</legend>
+            <legend class="text-center">Sign Up</legend>
              <div class="form-group">
               <label for="username" class="col-sm-3 control-label">User Name <span class='field-required'> *</span></label>
               <div class="col-sm-5">
@@ -81,7 +89,7 @@
 
               </div>
             </div>
-			     </form>
+           </form>
         </div>
       </div>
   </div>

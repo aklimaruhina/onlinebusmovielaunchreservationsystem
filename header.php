@@ -1,13 +1,13 @@
 <?php
-session_start(); 
-  include 'include/config.php';
-  $home = $config->base_url.'/homepage.php';
-  $path = $config->base_url.'/index.php';
-  $signin = $config->base_url.'/login.php';
-  $signup = $config->base_url.'/registration.php'; 
-  if(isset($_SESSION['sid'])){  
-    header("Location: homepage.php");
-  }
+// session_start(); 
+//   include 'include/config.php';
+//   $home = $config->base_url.'/homepage.php';
+//   $path = $config->base_url.'/index.php';
+//   $signin = $config->base_url.'/login.php';
+//   $signup = $config->base_url.'/registration.php'; 
+//   if(isset($_SESSION['sid'])){  
+//     header("Location: homepage.php");
+//   }
  ?>
 <!DOCTYPE html>
 <html>
