@@ -1,8 +1,9 @@
  <?php
-$servername = "www.db4free.net";
-$username = "ruhina05"; 
-$password = "0a4bfb";
-$dbname = "ttticketing";
+$servername = "sql6.freemysqlhosting.net";
+$username = "sql6133422"; 
+$password = "RGLN2qKXDJ";
+$dbname = "sql6133422";
+
 //  
 
 try {
