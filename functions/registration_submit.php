@@ -33,7 +33,7 @@ if(isset($_POST['mobileno']))
 if(isset($_POST['user_name']))
 	$user_name = $_POST['user_name'];
 $query1  =  "INSERT INTO users(id,username,email, password, is_admin, created) 
-			values(NULL,'".$user_name."','".$email."','".$password."','".$is_admin."' , NOW())";
+			values(NULL,'".$user_name."','".$email."','".md5($password)."','".$is_admin."' , NOW())";
 $success = mysqli_query($con,$query1) or die(mysqli_error($con));
 $query_id = "SELECT * FROM users WHERE email ='".$email."' AND username = '".$user_name."' AND password = '".$password."'";
 $result = mysqli_query($con, $query_id) or die(mysqli_error($con));
