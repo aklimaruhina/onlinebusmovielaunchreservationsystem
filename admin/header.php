@@ -4,7 +4,7 @@
   if(!user_loggedin() ){
     header('location: ../login.php');
   }
-  // $id= $_GET['id'];
+  $id= $_GET['id'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,7 +36,7 @@
          <div class="row">
             <div class="col-lg-12">
                <ul class="nav nav-tabs">
-              	  <li><a href="admin_dashboard.php">Dashboard</a></li>
+              	  <li><a href="admin_dashboard.php?id=<?php echo $id ?>">Dashboard</a></li>
               	  <li><a href="admin_dashboard_bus.php">Bus</a></li>
               	  <li><a href="admin_dashboard_bus_seat.php">Bus Reservation</a></li>
               	  <li><a href="admin_dashboard_launch.php">Launch</a></li>
